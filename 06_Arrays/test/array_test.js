@@ -106,6 +106,17 @@ TestCase("Chapter6_Arrays", {
 		}
 	},
 	"test_6_5_Confusion" : function () {
+		var myArray = ["zero",	"one", "two", "three", "four"];
+
+		jstestdriver.console.log(typeof myArray);
+		jstestdriver.console.log(myArray.constructor);
+		jstestdriver.console.log(myArray.length);
+		jstestdriver.console.log(myArray.splice);
+		jstestdriver.console.log(myArray.propertyIsEnumerable('length'));
+
+		assertTrue(is_array(myArray));
+		assertTrue(is_array_01(myArray));
+
 	},
 	"test_6_6_Methods" : function () {
 		// body...
