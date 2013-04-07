@@ -86,7 +86,24 @@ TestCase("Chapter6_Arrays", {
 
 	},
 	"test_6_4_Enumeration" : function () {
+		var i;
+		var myArray = ["zero",	"one", "two", "three", "four"];
 
+		for (i = 0; i < myArray.length; i++) {
+			jstestdriver.console.log(myArray[i]);
+
+			if(i === 0){
+				assertEquals("zero", myArray[i]);
+			} else if(i === 1){
+				assertEquals("one", myArray[i]);
+			} else if(i === 2){
+				assertEquals("two", myArray[i]);
+			} else if(i === 3){
+				assertEquals("three", myArray[i]);
+			} else if(i === 4){
+				assertEquals("four", myArray[i]);
+			}
+		}
 	},
 	"test_6_5_Confusion" : function () {
 	},
