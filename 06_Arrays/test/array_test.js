@@ -71,19 +71,29 @@ TestCase("Chapter6_Arrays", {
 		assertEquals(5, numbers.length);
 
 	},
-	"test_Delete" : function () {
+	"test_6_3_Delete" : function () {
+		var numbers = ["zero",	"one", "two", 'shi', 'go'];
+
+		delete numbers[2];
+		jstestdriver.console.log(numbers);
+		assertUndefined(numbers[2]);
+
+		numbers = ["zero",	"one", "two", 'shi', 'go'];
+
+		numbers.splice(2,1);
+		jstestdriver.console.log(numbers);
+		assertEquals('shi', numbers[2]);
+
+	},
+	"test_6_4_Enumeration" : function () {
+
+	},
+	"test_6_5_Confusion" : function () {
+	},
+	"test_6_6_Methods" : function () {
 		// body...
 	},
-	"test_Enumeration" : function () {
-		// body...
-	},
-	"test_Confusion" : function () {
-		// body...
-	},
-	"test_Methods" : function () {
-		// body...
-	},
-	"test_Dimensions" : function () {
+	"test_6_7_Dimensions" : function () {
  		// body...
 	}
 });
