@@ -119,7 +119,21 @@ TestCase("Chapter6_Arrays", {
 
 	},
 	"test_6_6_Methods" : function () {
-		// body...
+		var data = [4, 8, 15, 16, 23, 42];
+
+		var add = function(a,b){
+			return a + b;
+		};
+
+		var mult = function(a,b){
+			return a * b;
+		};
+		jstestdriver.console.log(data.reduce(add, 0));
+		jstestdriver.console.log(data.reduce(mult, 1));
+
+		assertEquals(108, data.reduce(add, 0));
+		assertEquals(7418880, data.reduce(mult, 1));
+
 	},
 	"test_6_7_Dimensions" : function () {
  		// body...
