@@ -68,6 +68,20 @@ TestCase("04_Funcitons Test",{
 			assertEquals('TypeError', e.name);
 			assertEquals('add needs numbers', e.message);
 		}
+	},
+
+	// 4.7 変数型の拡張
+
+	"test Augmenting Types" : function () {
+		Number.method('integer', function(){
+			return Math[this < 0 ? 'ceil' : 'floor'](this);
+		});
+		assertEquals(-3, (-10/3).integer());
+
+		String.method('trim', function () {
+			return this.replace(/^\s+|\s+$/g, '');
+		});
+		assertEquals("neat", " neat ".trim());
 	}
 });
 
