@@ -28,6 +28,12 @@ TestCase("04_Funcitons Test",{
 	"test workaround":function () {
 		myObject.double();
 		assertEquals(6, myObject.value);
+	},
+
+	// 4.3.3 コンストラクタ呼び出しパターン
+	"test Constructor Invocation Pattern" : function () {
+		var myQuo = new Quo("confused");
+		assertEquals("confused", myQuo.get_status());
 	}
 });
 
