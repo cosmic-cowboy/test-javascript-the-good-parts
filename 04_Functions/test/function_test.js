@@ -58,6 +58,16 @@ TestCase("04_Funcitons Test",{
 	// 4.4 引数
 	"test Arguments" : function () {
 		assertEquals(108, sum(4,8,15,16,23,42));
+	},
+
+	// 4.6 例外
+	"test Exception" : function () {
+		try{
+			add("seven");
+		} catch(e){
+			assertEquals('TypeError', e.name);
+			assertEquals('add needs numbers', e.message);
+		}
 	}
 });
 
