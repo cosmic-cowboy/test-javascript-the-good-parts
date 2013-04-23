@@ -20,9 +20,9 @@ TestCase("04_Funcitons Test",{
 
 	"test Function Invocation Pattern":function () {
 
-		var sum = add(3,4);
+		var sum4_3_2 = add(3,4);
 
-		assertEquals(7, sum);
+		assertEquals(7, sum4_3_2);
 	},
 
 	"test workaround":function () {
@@ -43,8 +43,8 @@ TestCase("04_Funcitons Test",{
 		// 2つの数値からなる配列をつくり、それらを足し合わせる
 
 		var array = [3,4];
-		var sum = add.apply(null, array);
-		assertEquals(7, sum);
+		var sum4_3_4 = add.apply(null, array);
+		assertEquals(7, sum4_3_4);
 
 		//
 		var statusObject = {
@@ -52,6 +52,12 @@ TestCase("04_Funcitons Test",{
 		};
 		var status = Quo.prototype.get_status.apply(statusObject);
 		assertEquals("A-OK", status);
+	},
+
+
+	// 4.4 引数
+	"test Arguments" : function () {
+		assertEquals(108, sum(4,8,15,16,23,42));
 	}
 });
 
