@@ -9,3 +9,16 @@ var myObject = {
 		this.value += typeof inc === 'number' ? inc :1;
 	}
 };
+
+// myObjectにdoubleメソッドを追加
+
+myObject.double = function () {
+	var that = this;
+
+	var helper = function  () {
+		that.value = add(that.value, that.value);
+	};
+
+	// Invoke helper as a function
+	helper();
+};
