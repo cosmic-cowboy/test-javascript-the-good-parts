@@ -31,9 +31,27 @@ TestCase("04_Funcitons Test",{
 	},
 
 	// 4.3.3 コンストラクタ呼び出しパターン
+
 	"test Constructor Invocation Pattern" : function () {
 		var myQuo = new Quo("confused");
 		assertEquals("confused", myQuo.get_status());
+	},
+
+	// 4.3.4 apply呼び出しパターン
+
+	"test Apply Invocation Pattern" : function () {
+		// 2つの数値からなる配列をつくり、それらを足し合わせる
+
+		var array = [3,4];
+		var sum = add.apply(null, array);
+		assertEquals(7, sum);
+
+		//
+		var statusObject = {
+			status: "A-OK"
+		};
+		var status = Quo.prototype.get_status.apply(statusObject);
+		assertEquals("A-OK", status);
 	}
 });
 
