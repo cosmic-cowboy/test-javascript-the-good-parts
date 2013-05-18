@@ -23,7 +23,18 @@ TestCase("05_Inheritance Test",{
 		assertEquals('r-r-r-r-r', myCat.purr(5));
 		assertEquals('meow Henrietta meow', myCat.get_name());
 
+	},
+
+	"test use inherit method, create Pseudoclass" : function () {
+
+		// var inherit_Cat = new CatInherit('Inherietta');
+		// assertEquals('meow', inherit_Cat.says());
+		// assertEquals('r-r-r-r-r-r-r', inherit_Cat.purr(7));
+		// assertEquals('meow Inherietta meow', inherit_Cat.get_name());
+
 	}
+
+	
 
 
 });
