@@ -32,9 +32,24 @@ TestCase("05_Inheritance Test",{
 		// assertEquals('r-r-r-r-r-r-r', inherit_Cat.purr(7));
 		// assertEquals('meow Inherietta meow', inherit_Cat.get_name());
 
-	}
+	},
 
-	
+	// 5.2 Object Specifiers
+	"test Object Specifiers" : function () {
+		var myObject = maker({
+			first : "f",
+			last : "l",
+			middle : "m",
+			state : "s",
+			city : "c"
+		});
+		assertEquals('f', myObject.first);
+		assertEquals('l', myObject.last);
+		assertEquals('m', myObject.middle);
+		assertEquals('s', myObject.state);
+		assertEquals('c', myObject.city);
+
+	}
 
 
 });
