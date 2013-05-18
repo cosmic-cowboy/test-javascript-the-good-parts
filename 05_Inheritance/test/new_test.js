@@ -35,7 +35,7 @@ TestCase("05_Inheritance Test",{
 	},
 
 	// 5.2 Object Specifiers
-	"test Object Specifiers" : function () {
+	"test 5.2 Object Specifiers" : function () {
 		var myObject = maker({
 			first : "f",
 			last : "l",
@@ -49,7 +49,46 @@ TestCase("05_Inheritance Test",{
 		assertEquals('s', myObject.state);
 		assertEquals('c', myObject.city);
 
+	},
+
+	// 5.3 Prototypal
+	"test 5.3 Prototypal" : function () {
+		var prototypeCat = Object.create(myMammal);
+		prototypeCat.name = 'Henrietta';
+		prototypeCat.saying = 'meow';
+		prototypeCat.purr = function (n) {
+			var i, s = '';
+			for (i = 0; i < n; i += 1) {
+				if(s){
+					s += '-';
+				}
+				s += 'r';
+			}
+			return s;
+		};
+		assertEquals('meow', prototypeCat.says());
+		assertEquals('r-r-r-r-r', prototypeCat.purr(5));
+		assertEquals('Henrietta', prototypeCat.get_name());
+
 	}
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
