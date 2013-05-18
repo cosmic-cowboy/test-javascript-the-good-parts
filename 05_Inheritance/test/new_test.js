@@ -66,13 +66,62 @@ TestCase("05_Inheritance Test",{
 			}
 			return s;
 		};
+		prototypeCat.get_name = function() {
+			return this.says() + ' ' + this.name + ' ' + this.says();
+		};
 		assertEquals('meow', prototypeCat.says());
 		assertEquals('r-r-r-r-r', prototypeCat.purr(5));
-		assertEquals('Henrietta', prototypeCat.get_name());
+		assertEquals('meow Henrietta meow', prototypeCat.get_name());
+
+	},
+	// 5.4 Functional
+	"test 5.4 Functional" : function () {
+
+		var functionalCat = function (spec) {
+			spec.saying = spec.saying || 'meow';
+			var that =	fun_mammal(spec);
+			that.purr = function (n) {
+				var i, s = '';
+				for (i = 0; i < n; i += 1) {
+					if(s){
+						s += '-';
+					}
+					s += 'r';
+				}
+				return s;
+			};
+			that.get_name = function() {
+				return this.says() + ' ' + spec.name + ' ' + this.says();
+			};
+
+			return that;
+		};
+
+		var myFunctionalCat = functionalCat({name:'Henrietta'});
+
+		assertEquals('meow', myFunctionalCat.says());
+		assertEquals('r-r-r-r-r', myFunctionalCat.purr(5));
+		assertEquals('meow Henrietta meow', myFunctionalCat.get_name());
+
+		// test 5.4 Functional call parent method"
+
+		var coolCat = function (spec) {
+			var that =	functionalCat(spec),
+				super_get_name = that.superior('get_name');
+			that.get_name = function() {
+				return 'like ' + super_get_name() + ' bady';
+			};
+
+			return that;
+		};
+
+		var myCoolCat = coolCat({name:'Bix'});
+
+		assertEquals('meow', myCoolCat.says());
+		assertEquals('r-r-r-r-r', myCoolCat.purr(5));
+		assertEquals('like meow Bix meow bady', myCoolCat.get_name());
 
 	}
-
-
 });
 
 
