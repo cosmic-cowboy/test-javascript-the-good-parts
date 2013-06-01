@@ -136,6 +136,7 @@ TestCase("Chapter6_Arrays", {
 
 	},
 	"test_6_7_Dimensions" : function () {
- 		// body...
+		var myArray = Array.dim(10, "a");
+		assertEquals(["a","a","a","a","a","a","a","a","a","a"], myArray);
 	}
 });

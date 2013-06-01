@@ -22,3 +22,12 @@ Array.prototype.reduce = function(f, value){
 	}
 	return value;
 };
+
+// 6_7_dim
+Array.dim = function(dimension, initial) {
+	var a = [], i;
+	for (i = 0; i < dimension; i++) {
+		a[i] = initial;
+	}
+	return a;
+};
