@@ -138,5 +138,9 @@ TestCase("Chapter6_Arrays", {
 	"test_6_7_Dimensions" : function () {
 		var myArray = Array.dim(10, "a");
 		assertEquals(["a","a","a","a","a","a","a","a","a","a"], myArray);
+	},
+	"test_6_7_Matrix" : function () {
+		var myMatrix = Array.matrix(4, 4, 0);
+		assertEquals(0, (myMatrix[3][3]));
 	}
 });
