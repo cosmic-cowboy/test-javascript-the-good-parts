@@ -113,6 +113,19 @@ TestCase("04_Funcitons Test",{
 			assertEquals(undefined, c);
 
 		};
+	},
+
+	// 4.10　クロージャ
+	"test closure Immediate Functions" : function () {
+		myObject_Closure.increment();
+		assertEquals(1, myObject_Closure.getValue());
+
+		myObject_Closure.increment(4);
+		assertEquals(5, myObject_Closure.getValue());
+
+		myObject_Closure.increment("string");
+		assertEquals(6, myObject_Closure.getValue());
+
 	}
 });
 
