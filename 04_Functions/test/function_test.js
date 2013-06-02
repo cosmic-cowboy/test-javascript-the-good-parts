@@ -82,6 +82,37 @@ TestCase("04_Funcitons Test",{
 			return this.replace(/^\s+|\s+$/g, '');
 		});
 		assertEquals("neat", " neat ".trim());
+	},
+
+	// 4.9 スコープ Scope
+	"test Scope" : function () {
+		var foo = function () {
+			var a = 3,  b = 5;
+			var bar = function () {
+				var b = 7, c = 11;
+				// この時点で、a は3、b は7、c は11 になっている
+				assertEquals(3, a);
+				assertEquals(7, b);
+				assertEquals(11, c);
+
+				a += b + c;
+				// この時点で、a は21、b は7、c は11 になっている
+				assertEquals(21, a);
+				assertEquals(7, b);
+				assertEquals(11, c);
+			};
+			// この時点で、a は3、b は5 になり、c は未定義
+			assertEquals(3, a);
+			assertEquals(5, b);
+			assertEquals(undefined, c);
+
+			bar();
+			// この時点で、a は21、b は5 になり、c は未定義
+			assertEquals(21, a);
+			assertEquals(5, b);
+			assertEquals(undefined, c);
+
+		};
 	}
 });
 
