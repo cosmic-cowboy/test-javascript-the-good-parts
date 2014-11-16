@@ -174,3 +174,34 @@ TestCase("FunctionTest", {
   }
 
 });
+
+TestCase("NumberTest", {
+  "test toExponential " : function(){
+
+    assertEquals('3e+0', Math.PI.toExponential(0));
+    assertEquals('3.14e+0', Math.PI.toExponential(2));
+    assertEquals('3.1415927e+0', Math.PI.toExponential(7));
+    assertEquals('3.1415926535897931e+0', Math.PI.toExponential(16));
+    assertEquals('3.141592653589793e+0', Math.PI.toExponential());
+  },
+  "test toFixed " : function(){
+
+    assertEquals('3', Math.PI.toFixed(0));
+    assertEquals('3.14', Math.PI.toFixed(2));
+    assertEquals('3.1415927', Math.PI.toFixed(7));
+    assertEquals('3.1415926535897931', Math.PI.toFixed(16));
+    assertEquals('3', Math.PI.toFixed());
+  },
+  "test toPrecision " : function(){
+    assertEquals('3.1', Math.PI.toPrecision(2));
+    assertEquals('3.141593', Math.PI.toPrecision(7));
+    assertEquals('3.141592653589793', Math.PI.toPrecision(16));
+    assertEquals('3.141592653589793', Math.PI.toPrecision());
+  },
+  "test toString " : function(){
+    assertEquals('11.001001000011111101101010100010001000010110100011', Math.PI.toString(2));
+    assertEquals('3.1103755242102643', Math.PI.toString(8));
+    assertEquals('3.243f6a8885a3', Math.PI.toString(16));
+    assertEquals('3.141592653589793', Math.PI.toString());
+  }
+});
