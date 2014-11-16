@@ -146,4 +146,31 @@ TestCase("ArrayTest", {
   }
 
 });
+
+TestCase("FunctionTest", {
+  "test bind " : function(){
+    var values = function () {
+      return this.value;
+    }.bind({
+      value : 666
+    });
+    assertEquals(666, values());
+  },
+  "test apply " : function(){
+    var values = function () {
+      return this.value;
+    };
+    values.binds = function (that) {
+      var method = this;
+      var slice = Array.prototype.slice;
+      var args  = slice.apply(arguments, [1]);
+      return method.apply(that, args.concat(slice.apply(arguments, [0])));
+    };
+
+    var a = values.binds({
+      value : 666
+    });
+    assertEquals(666, a);
+  }
+
 });
