@@ -217,3 +217,29 @@ TestCase("ObjectText", {
     assertTrue(b.member);
   }
 });
+
+TestCase("RegExp", {
+  "test regexp test" : function () {
+    var a = 'franc &amp; beans';
+    var b = /&.+;/;
+    assertTrue(b.test(a));
+  },
+  "test regexp exec" : function () {
+    var text = '<html><body bgcolor=linen><p>This is <b>bold<\/b>!<\/p><\/body><\/html>';
+    // タグ以外とタグをわける
+    // タグの場合、キャプチャーグループが３つ存在する
+    // １つ目：終了タグのスラッシュ
+    // ２つ目：英字
+    // ３つ目：英字以外（タグ要素以外の属性がここに入る）
+    //       タグ要素のあとにスペースが入り、次の山括弧、アングルブラケットがくるまで
+    var tags = /[^<>]+|<(\/?)([A-Za-z]+)([^<>]*)>/g;
+    var a, i;
+    a = tags.exec(text);
+    assertEquals(a[0],"<html>");
+    assertEquals(a[1],"");
+    assertEquals(a[2],"html");
+    assertEquals(a[3],"");
+
+  }
+});
+
