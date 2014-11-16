@@ -205,3 +205,15 @@ TestCase("NumberTest", {
     assertEquals('3.141592653589793', Math.PI.toString());
   }
 });
+
+TestCase("ObjectText", {
+  "test object" : function () {
+    var a = {member : true};
+    var b = Object.create(a);
+
+    assertTrue(a.hasOwnProperty('member'));
+    assertFalse(b.hasOwnProperty('member'));
+    assertTrue(a.member);
+    assertTrue(b.member);
+  }
+});
